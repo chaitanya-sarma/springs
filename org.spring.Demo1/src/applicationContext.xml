@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Include props file -->
+	<context:property-placeholder location="classpath:sports.properties" />
+	<!-- Define your beans here -->
+
+	<bean id="myCoach" class="org.spring.Demo.TrackCoach">
+		<!-- Constructor injection -->
+		<constructor-arg ref="happyFortune" />
+	</bean>
+
+	<bean id="myCricketCoach" class="org.spring.Demo.CricketCoach">
+		<!-- Setter injection -->
+
+		<property name="fortuneService" ref="happyFortune"></property>
+		<property name="team" value="Sun"></property>
+	</bean>
+
+	<bean id="myCricketCoachWithProp" class="org.spring.Demo.CricketCoach">
+		<!-- Setter injection -->
+
+		<property name="fortuneService" ref="happyFortune"></property>
+		<property name="team" value="${foo.team}"></property>
+	</bean>
+	<bean id="happyFortune" class="org.spring.Demo.HappyFortuneService">
+	</bean>
+</beans>
+
+
+
+
+
