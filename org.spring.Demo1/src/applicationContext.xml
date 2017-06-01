@@ -23,7 +23,7 @@
 	</bean>
 
 	<bean id="myCricketCoachWithProp" class="org.spring.Demo.CricketCoach">
-		<!-- Setter injection -->
+		<!-- Read from props.s-->
 
 		<property name="fortuneService" ref="happyFortune"></property>
 		<property name="team" value="${foo.team}"></property>

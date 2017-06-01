@@ -1,5 +1,8 @@
 package org.spring.Demo;
 
+import org.springframework.stereotype.Component;
+
+@Component("trackCoach")
 public class TrackCoach implements Coach {
 
 	private FortuneService fortuneService;
@@ -18,4 +21,7 @@ public class TrackCoach implements Coach {
 		return fortuneService.todayFortune();
 	}
 
+	public void doStuff(){
+		System.out.println("B");
+	}
 }

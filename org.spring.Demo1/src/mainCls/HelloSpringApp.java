@@ -1,5 +1,6 @@
-package org.spring.Demo;
+package mainCls;
 
+import org.spring.Demo.Coach;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class HelloSpringApp {
