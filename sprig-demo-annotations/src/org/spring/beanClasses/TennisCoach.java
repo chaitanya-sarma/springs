@@ -2,14 +2,20 @@ package org.spring.beanClasses;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 //No bean id specified so the default bean id: tennisCoach is taken.
 @Component
 public class TennisCoach implements Coach {
 
+
+	@Value("${foo.team}")
+	private String team;
+
+	
 	//Field injection
 	@Autowired
-	@Qualifier("brainyFortuneService")
+	@Qualifier("happyFortuneService")
 	private FortuneService fortuneService;
 /*	
 	// Spring will scan the classes that implement the FortuneSerice class and injects it here.
@@ -32,7 +38,7 @@ public class TennisCoach implements Coach {
 
 	@Override
 	public String getFortune() {
-		return fortuneService.todayFortune();
+		return team + "\t"+fortuneService.todayFortune();
 	}
 
 }
